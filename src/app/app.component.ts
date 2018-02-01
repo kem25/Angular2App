@@ -1,40 +1,9 @@
 import { Component, ViewEncapsulation } from '@angular/core';
 
+
 @Component({
   selector: 'app-root',
-  template: `
-  <h1>Hello to Templates</h1>
-  Company = {{CompanyName}}<br>
-  Count = {{Count+1}}<br>
-  Name = {{getName()}}<br>
-  {{employee.age}}<br>
-  {{employee.group}}<br>
-  {{employee.address.city}}<br>
-  States Visited<br>
-  <ul>
-    <li *ngFor="let state of employee.states">
-    {{state}}
-    </li>
-    </ul>
-    List of Employers
-    <table class="table table-striped">
-    <tr>
-    <th>Employer</th>
-    <th>Salary</th>
-    <th>Gender</th>
-    <th>Company</th>
-    <th>Age</th>
-    </tr>
-    <tr *ngFor="let employer of employers">
-    <td>{{employer.Name}}</td>
-    <td>{{employer.Salary}}</td>
-    <td>{{employer.gender}}</td>
-    <td>{{employer.Company}}</td>
-    <td>{{employer.Age}}</td>
-    </tr>
-    </table>
-    <button class="btn btn-primary">Test</button>
-  `,
+  templateUrl: './app.component.html',
   encapsulation: ViewEncapsulation.Emulated,
   styleUrls: ['./app.component.css']
 })
@@ -48,6 +17,15 @@ export class AppComponent {
     return 'Komala';
   }
 
+  handleInput(event){
+    let value1 = ((<HTMLInputElement>event.target).value);
+    console.log(value1);
+  }
+
+  handleMouseEnter(event:MouseEvent){
+    let value2 = ((<HTMLInputElement>event.target).value);
+    console.log(value2);
+  }
   employee = {
     age: 20,
     group: 'B',
@@ -61,6 +39,7 @@ export class AppComponent {
 employers =[{
   Name: 'Adam',
   Age:23,
+  active: true,
   Company:'ATT',
   gender: 'M', 
   Salary: 10000
@@ -68,6 +47,7 @@ employers =[{
 {
   Name: 'Enoch',
   Age:24,
+  active: false,
   Company:'ATT',
   gender: 'F', 
   Salary: 50000
@@ -75,13 +55,10 @@ employers =[{
 {
   Name: 'Peter',
   Age:23,
+  active: true,
   Company:'ATT',
   gender: 'M', 
   Salary: 20000
 }
 ]
-
-
-
-
 }

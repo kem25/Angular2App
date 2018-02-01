@@ -1,0 +1,44 @@
+<h1>Hello to Templates</h1>
+  Company = {{CompanyName}}<br>
+  Count = {{Count+1}}<br>
+  Name = {{getName()}}<br>
+  {{employee.age}}<br>
+  {{employee.group}}<br>
+  {{employee.address.city}}<br>
+  States Visited<br>
+  <ul>
+    <li *ngFor="let state of employee.states">
+    {{state}}
+    </li>
+    </ul>
+    List of Employers
+    <table class="table table-striped">
+    <tr>
+    <th>Employer</th>
+    <th>Salary</th>
+    <th>Gender</th>
+    <th>Company</th>
+    <th>Age</th>
+    </tr>
+    <tr *ngFor="let employer of employers">
+    <td>{{employer.Name}}</td>
+    <td>{{employer.Salary}}</td>
+    <td>{{employer.gender}}</td>
+    <td>{{employer.Company}}</td>
+    <td>{{employer.Age}}</td>
+    </tr>
+    </table>
+    <div *ngFor="let employer of employers">
+    <p [ngStyle]="{'background-color':employer.active?'blue':'red','color':employer.active?'white':'black'}">{{employer.Name}}</p>
+    <p [hidden]="employer.active">{{employer.Salary}}</p>
+    </div>
+    <div *ngFor="let employer of employers">
+    <p [ngClass]="{'active':employer.active,'inactive':!employer.active}">{{employer.gender}}</p>
+    </div>
+    Enter Age: <input type="text" [(ngModel)]="employee.age">
+    NewAge: {{employee.age}}<br>
+    <input type="text" (input)="handleInput($event)"><br>
+    Enter city:<input type ="text" (mouseenter)=handleMouseEnter($event)><br>
+    <button class="btn btn-primary">Test</button>
+
+    
