@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { FirstModule } from './first/first.module';
+import { ReusableModule } from './reusable/reusable.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { FirstModule } from './first/first.module';
   imports: [
     BrowserModule,
     FirstModule,
-    FormsModule
+    FormsModule,
+    ReusableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

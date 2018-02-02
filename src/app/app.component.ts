@@ -1,4 +1,5 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, ElementRef, ViewChild } from '@angular/core';
+
 
 
 @Component({
@@ -8,6 +9,8 @@ import { Component, ViewEncapsulation } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+ @ViewChild('temp1')
+  pElement:ElementRef;
   title = 'app';
   name = 'my first angular app';
   CompanyName = 'Google';
@@ -25,6 +28,18 @@ export class AppComponent {
   handleMouseEnter(event:MouseEvent){
     let value2 = ((<HTMLInputElement>event.target).value);
     console.log(value2);
+  }
+
+  sendTempContent(content:string){
+    console.log(content);
+  } 
+
+  sendPContent(){
+    console.log(this.pElement.nativeElement.textContent);
+  }
+
+  handleboxClickedEvent(event){
+    console.log(event);
   }
   employee = {
     age: 20,

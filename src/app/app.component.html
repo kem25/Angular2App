@@ -1,3 +1,7 @@
+<app-box [CandidateName]="'Komala'" [CssClass]="'blue'" (boxClicked)="handleboxClickedEvent($event)"></app-box>
+<app-box [CandidateName]="'Deepthi'" [CssClass]="'red'" (boxClicked)="handleboxClickedEvent($event)"></app-box>
+<app-box [CandidateName]="'Sapireddy'"[CssClass]="'blue'" (boxClicked)="handleboxClickedEvent($event)"></app-box>
+<app-box (boxClicked)="handleboxClickedEvent($event)"></app-box>
 <h1>Hello to Templates</h1>
   Company = {{CompanyName}}<br>
   Count = {{Count+1}}<br>
@@ -35,6 +39,11 @@
     <div *ngFor="let employer of employers">
     <p [ngClass]="{'active':employer.active,'inactive':!employer.active}">{{employer.gender}}</p>
     </div>
+    <p #temp>I work at Wells Fargo</p><br>
+    {{temp.textContent}}<br>
+    <button type="button" (click) = "sendTempContent(temp.textContent)">Submit</button>
+    <p #temp1>Trying to work with element references</p>
+    <button type="button" (click) = "sendPContent()">Click</button>"
     Enter Age: <input type="text" [(ngModel)]="employee.age">
     NewAge: {{employee.age}}<br>
     <input type="text" (input)="handleInput($event)"><br>
